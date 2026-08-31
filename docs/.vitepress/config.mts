@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  title: 'tForce',
+  description: 'A game series as learning projects.',
+
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
@@ -17,10 +20,9 @@ export default defineConfig({
             { text: 'Overview', link: '/wiki/' },
             { text: 'tForce', link: '/wiki/tforce' },
             { text: 'tForce Dreadbright', link: '/wiki/tforce-dreadbright' },
-          ]
+          ],
         },
-      ]
-    }
-  }
+      ],
+    },
+  },
 })
-
