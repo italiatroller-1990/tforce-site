@@ -1,13 +1,12 @@
 ---
-layout: doc
+title: Wiki
 ---
 
-# Welcome to tForce's wiki, where you will see the information of the:
+# Welcome to the tForce Wiki
 
-- Games
+This is the official wiki for tForce — a game series made by Italia Troller as learning projects on game engines, toolkits and fun stuff.
 
-- Contributors
+## Games
 
-- Development hell
-
-- Roasts about the creator and contributors
+- [tForce](/wiki/tforce) — where it all began
+- [tForce Dreadbright](/wiki/tforce-dreadbright) — the ambitious FPS remake
