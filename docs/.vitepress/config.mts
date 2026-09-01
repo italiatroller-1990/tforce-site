@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { generateSidebar } from 'vitepress-sidebar'
 
 export default defineConfig({
   title: 'tForce',
@@ -23,10 +24,18 @@ export default defineConfig({
           ],
         },
       ],
+
+      '/blog/': generateSidebar({
+        documentRootPath: '/docs',
+        scanStartPath: 'blog',
+        resolvePath: '/blog/',
+        useTitleFromFileHeading: true,
+      }),
     },
+
     footer: {
       message: 'Licensed under AGPL',
-      copyright: 'Copyright © [PRESENT_YEAR] (guess it) Italia Troller'
-    }
+      copyright: 'Copyright © [PRESENT_YEAR] (guess it) Italia Troller',
+    },
   },
 })

@@ -1,6 +1,6 @@
 ---
 layout: home
-
+title: Homepage
 hero:
   name: tForce
   tagline: A game series as learning projects. Free and open source*

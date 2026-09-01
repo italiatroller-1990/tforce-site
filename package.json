@@ -13,5 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "vitepress": "^2.0.0-alpha.19"
+  },
+  "dependencies": {
+    "vitepress-sidebar": "^1.39.0"
   }
 }
