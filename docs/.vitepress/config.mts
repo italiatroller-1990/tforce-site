@@ -9,7 +9,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Wiki', link: '/wiki/' },
       { text: 'Git org', link: 'https://git.italiatroller.dpdns.org/tForce' },
-      { text: 'Devlog', link: '/devlog/' },
+      { text: 'Blog', link: '/blog/' },
     ],
 
     sidebar: {
@@ -24,5 +24,9 @@ export default defineConfig({
         },
       ],
     },
+    footer: {
+      message: 'Licensed under AGPL',
+      copyright: 'Copyright © [PRESENT_YEAR] (guess it) Italia Troller'
+    }
   },
 })

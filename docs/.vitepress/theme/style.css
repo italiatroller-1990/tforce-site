@@ -1,131 +1,611 @@
-/**
- * Customize default theme styling by overriding CSS variables:
- * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
- */
+/* =========================================================
+   tForce VitePress Theme
+   Green Terminal
+   ========================================================= */
 
-/**
- * Colors
- *
- * Each colors have exact same color scale system with 3 levels of solid
- * colors with different brightness, and 1 soft color.
- *
- * - `XXX-1`: The most solid color used mainly for colored text. It must
- *   satisfy the contrast ratio against when used on top of `XXX-soft`.
- *
- * - `XXX-2`: The color used mainly for hover state of the button.
- *
- * - `XXX-3`: The color for solid background, such as bg color of the button.
- *   It must satisfy the contrast ratio with pure white (#ffffff) text on
- *   top of it.
- *
- * - `XXX-soft`: The color used for subtle background such as custom container
- *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
- *   on top of it.
- *
- *   The soft color must be semi transparent alpha channel. This is crucial
- *   because it allows adding multiple "soft" colors on top of each other
- *   to create an accent, such as when having inline code block inside
- *   custom containers.
- *
- * - `default`: The color used purely for subtle indication without any
- *   special meanings attached to it such as bg color for menu hover state.
- *
- * - `brand`: Used for primary brand colors, such as link text, button with
- *   brand theme, etc.
- *
- * - `tip`: Used to indicate useful information. The default theme uses the
- *   brand color for this by default.
- *
- * - `warning`: Used to indicate warning to the users. Used in custom
- *   container, badges, etc.
- *
- * - `danger`: Used to show error, or dangerous message to the users. Used
- *   in custom container, badges, etc.
- * -------------------------------------------------------------------------- */
+
+/* =========================================================
+   Theme Variables
+   ========================================================= */
 
 :root {
-  --vp-c-default-1: var(--vp-c-gray-1);
-  --vp-c-default-2: var(--vp-c-gray-2);
-  --vp-c-default-3: var(--vp-c-gray-3);
-  --vp-c-default-soft: var(--vp-c-gray-soft);
+  /* Backgrounds */
+  --vp-c-bg: #090d09;
+  --vp-c-bg-alt: #0c120c;
+  --vp-c-bg-elv: #101810;
+  --vp-c-bg-soft: #0d150d;
 
-  --vp-c-brand-1: var(--vp-c-indigo-1);
-  --vp-c-brand-2: var(--vp-c-indigo-2);
-  --vp-c-brand-3: var(--vp-c-indigo-3);
-  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+  /* Text */
+  --vp-c-text-1: #d7fbd7;
+  --vp-c-text-2: #9cba9c;
+  --vp-c-text-3: #668066;
 
-  --vp-c-tip-1: var(--vp-c-brand-1);
-  --vp-c-tip-2: var(--vp-c-brand-2);
-  --vp-c-tip-3: var(--vp-c-brand-3);
-  --vp-c-tip-soft: var(--vp-c-brand-soft);
+  /* Dividers */
+  --vp-c-divider: #193019;
+  --vp-c-gutter: #090d09;
 
-  --vp-c-warning-1: var(--vp-c-yellow-1);
-  --vp-c-warning-2: var(--vp-c-yellow-2);
-  --vp-c-warning-3: var(--vp-c-yellow-3);
-  --vp-c-warning-soft: var(--vp-c-yellow-soft);
+  /* Green */
+  --vp-c-green-1: #b6ffb6;
+  --vp-c-green-2: #62ff88;
+  --vp-c-green-3: #00cc55;
+  --vp-c-green-soft: rgba(0, 255, 102, 0.10);
 
-  --vp-c-danger-1: var(--vp-c-red-1);
-  --vp-c-danger-2: var(--vp-c-red-2);
-  --vp-c-danger-3: var(--vp-c-red-3);
-  --vp-c-danger-soft: var(--vp-c-red-soft);
-}
+  /* Brand */
+  --vp-c-brand-1: #62ff88;
+  --vp-c-brand-2: #32e66a;
+  --vp-c-brand-3: #00aa44;
+  --vp-c-brand-soft: rgba(0, 255, 102, 0.11);
 
-/**
- * Component: Button
- * -------------------------------------------------------------------------- */
+  /* Tip */
+  --vp-c-tip-1: #62ff88;
+  --vp-c-tip-2: #32e66a;
+  --vp-c-tip-3: #00aa44;
+  --vp-c-tip-soft: rgba(0, 255, 102, 0.10);
 
-:root {
+  /* Warning */
+  --vp-c-warning-1: #e5e56b;
+  --vp-c-warning-2: #caca4f;
+  --vp-c-warning-3: #96962e;
+  --vp-c-warning-soft: rgba(220, 220, 80, 0.10);
+
+  /* Danger */
+  --vp-c-danger-1: #ff7777;
+  --vp-c-danger-2: #ee5555;
+  --vp-c-danger-3: #bb3333;
+  --vp-c-danger-soft: rgba(255, 70, 70, 0.10);
+
+  /* Default */
+  --vp-c-default-1: #a0b5a0;
+  --vp-c-default-2: #788c78;
+  --vp-c-default-3: #4e604e;
+  --vp-c-default-soft: rgba(150, 180, 150, 0.08);
+
+  /* Typography */
+  --vp-font-family-base:
+    "JetBrains Mono",
+    "Cascadia Code",
+    "Fira Code",
+    monospace;
+
+  --vp-font-family-mono:
+    "JetBrains Mono",
+    "Cascadia Code",
+    "Fira Code",
+    monospace;
+
+  /* Buttons */
   --vp-button-brand-border: transparent;
-  --vp-button-brand-text: var(--vp-c-white);
-  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-text: #061006;
+  --vp-button-brand-bg: #00aa44;
+
   --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-hover-text: var(--vp-c-white);
-  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-hover-text: #061006;
+  --vp-button-brand-hover-bg: #32e66a;
+
   --vp-button-brand-active-border: transparent;
-  --vp-button-brand-active-text: var(--vp-c-white);
-  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-brand-active-text: #061006;
+  --vp-button-brand-active-bg: #62ff88;
+
+  /* Home hero */
+  --vp-home-hero-name-color: #62ff88;
+  --vp-home-hero-name-background: none;
+
+  --vp-home-hero-image-background-image:
+    radial-gradient(
+      circle,
+      rgba(0, 255, 102, 0.20),
+      transparent 70%
+    );
+
+  --vp-home-hero-image-filter: blur(70px);
 }
 
-/**
- * Component: Home
- * -------------------------------------------------------------------------- */
 
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-    120deg,
-    #bd34fe 30%,
-    #41d1ff
-  );
+/* =========================================================
+   Dark Mode
+   ========================================================= */
 
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    #bd34fe 50%,
-    #47caff 50%
-  );
-  --vp-home-hero-image-filter: blur(44px);
+.dark {
+  --vp-c-bg: #090d09;
+  --vp-c-bg-alt: #0c120c;
+  --vp-c-bg-elv: #101810;
+  --vp-c-bg-soft: #0d150d;
+
+  --vp-c-text-1: #d7fbd7;
+  --vp-c-text-2: #9cba9c;
+  --vp-c-text-3: #668066;
+
+  --vp-c-divider: #193019;
+  --vp-c-gutter: #090d09;
+
+  --vp-c-brand-1: #62ff88;
+  --vp-c-brand-2: #32e66a;
+  --vp-c-brand-3: #00aa44;
+  --vp-c-brand-soft: rgba(0, 255, 102, 0.11);
 }
 
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
-  }
+
+/* =========================================================
+   Global
+   ========================================================= */
+
+html,
+body {
+  background: #090d09;
 }
 
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
-  }
+::selection {
+  background: rgba(0, 255, 102, 0.25);
+  color: #d7fbd7;
 }
 
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-:root {
-  --vp-custom-block-tip-border: transparent;
-  --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+:focus-visible {
+  outline: 2px solid #32e66a;
+  outline-offset: 2px;
 }
 
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+
+.VPNav {
+  background: rgba(9, 13, 9, 0.92);
+  border-bottom: 1px solid #193019;
+}
+
+.VPNavBar {
+  background: transparent;
+}
+
+.VPNavBarTitle .title {
+  color: #62ff88;
+  font-family: var(--vp-font-family-mono);
+  font-weight: 700;
+}
+
+.VPNavBarTitle .title::before {
+  content: "> ";
+  color: #00aa44;
+}
+
+.VPNavBarMenuLink {
+  color: #9cba9c;
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuLink.active {
+  color: #62ff88;
+}
+
+
+/* =========================================================
+   Sidebar
+   ========================================================= */
+
+.VPSidebar {
+  background: #0b110b;
+  border-right: 1px solid #193019;
+}
+
+.VPSidebarItem .text {
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  color: #62ff88;
+  font-weight: 700;
+}
+
+.VPSidebarItem.is-active > .item > .link {
+  color: #62ff88;
+}
+
+.VPSidebarItem.is-active > .item > .link::before {
+  content: "> ";
+  color: #00cc55;
+}
+
+.VPSidebarItem .link:hover {
+  color: #b6ffb6;
+}
+
+
+/* =========================================================
+   Documentation
+   ========================================================= */
+
+.vp-doc {
+  font-family: var(--vp-font-family-base);
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+  color: #d7fbd7;
+  font-family: var(--vp-font-family-mono);
+}
+
+.vp-doc h1::before {
+  content: "# ";
+  color: #00aa44;
+}
+
+.vp-doc h2::before {
+  content: "## ";
+  color: #00aa44;
+}
+
+.vp-doc h3::before {
+  content: "### ";
+  color: #00aa44;
+}
+
+
+/* =========================================================
+   Links
+   ========================================================= */
+
+.vp-doc a {
+  color: #62ff88;
+  text-decoration-color: rgba(98, 255, 136, 0.35);
+}
+
+.vp-doc a:hover {
+  color: #b6ffb6;
+  text-decoration-color: #62ff88;
+}
+
+
+/* =========================================================
+   Inline Code
+   ========================================================= */
+
+.vp-doc :not(pre) > code {
+  background: rgba(0, 255, 102, 0.08);
+  border: 1px solid rgba(0, 255, 102, 0.15);
+  color: #62ff88;
+}
+
+
+/* =========================================================
+   Code Blocks
+   ========================================================= */
+
+.vp-doc div[class*="language-"] {
+  background: #060a06;
+  border: 1px solid #193019;
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 102, 0.02),
+    0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.vp-doc div[class*="language-"]::before {
+  color: #668066;
+  font-family: var(--vp-font-family-mono);
+}
+
+.vp-doc div[class*="language-"] code {
+  font-family: var(--vp-font-family-mono);
+}
+
+.vp-doc .line {
+  color: #c7e8c7;
+}
+
+
+/* =========================================================
+   Terminal Code
+   ========================================================= */
+
+.vp-doc div[class*="language-bash"],
+.vp-doc div[class*="language-sh"],
+.vp-doc div[class*="language-shell"],
+.vp-doc div[class*="language-console"] {
+  border-color: #245524;
+}
+
+.vp-doc div[class*="language-bash"]::before,
+.vp-doc div[class*="language-sh"]::before,
+.vp-doc div[class*="language-shell"]::before,
+.vp-doc div[class*="language-console"]::before {
+  color: #32e66a;
+}
+
+
+/* =========================================================
+   Custom Blocks
+   ========================================================= */
+
+.custom-block {
+  border-width: 1px;
+}
+
+.custom-block.tip {
+  background: rgba(0, 255, 102, 0.06);
+  border-color: rgba(0, 255, 102, 0.25);
+}
+
+.custom-block.tip .custom-block-title {
+  color: #62ff88;
+}
+
+.custom-block.warning {
+  background: rgba(220, 220, 80, 0.06);
+  border-color: rgba(220, 220, 80, 0.25);
+}
+
+.custom-block.warning .custom-block-title {
+  color: #e5e56b;
+}
+
+.custom-block.danger {
+  background: rgba(255, 70, 70, 0.06);
+  border-color: rgba(255, 70, 70, 0.25);
+}
+
+.custom-block.danger .custom-block-title {
+  color: #ff7777;
+}
+
+.custom-block.info {
+  background: rgba(100, 150, 100, 0.06);
+  border-color: #193019;
+}
+
+
+/* =========================================================
+   Tables
+   ========================================================= */
+
+.vp-doc table {
+  border-collapse: collapse;
+  background: #0b110b;
+}
+
+.vp-doc tr {
+  background: #0b110b;
+  border-top: 1px solid #193019;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background: #0e150e;
+}
+
+.vp-doc th {
+  background: #101810;
+  color: #62ff88;
+  font-family: var(--vp-font-family-mono);
+}
+
+.vp-doc td,
+.vp-doc th {
+  border: 1px solid #193019;
+}
+
+
+/* =========================================================
+   Blockquotes
+   ========================================================= */
+
+.vp-doc blockquote {
+  background: rgba(0, 255, 102, 0.04);
+  border-left: 3px solid #00aa44;
+  color: #9cba9c;
+}
+
+
+/* =========================================================
+   Search
+   ========================================================= */
+
+.VPLocalSearchBox .shell {
+  background: #0b110b;
+  border: 1px solid #245524;
+}
+
+.DocSearch-Button {
+  background: #0b110b;
+  border: 1px solid #193019;
+}
+
+.DocSearch-Button:hover {
+  border-color: #32e66a;
+}
+
+.DocSearch-Button .DocSearch-Search-Icon {
+  color: #62ff88;
+}
+
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+.VPButton {
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPButton.brand {
+  background: #00aa44;
+  color: #061006;
+}
+
+.VPButton.brand:hover {
+  background: #32e66a;
+}
+
+.VPButton.alt {
+  background: #101810;
+  border: 1px solid #245524;
+  color: #62ff88;
+}
+
+.VPButton.alt:hover {
+  background: #142014;
+  border-color: #32e66a;
+}
+
+
+/* =========================================================
+   Home Hero
+   ========================================================= */
+
+.VPHero .name {
+  color: #62ff88;
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPHero .name::before {
+  content: "$ ";
+  color: #00aa44;
+}
+
+.VPHero .text {
+  color: #d7fbd7;
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPHero .tagline {
+  color: #9cba9c;
+}
+
+.VPHero .actions {
+  font-family: var(--vp-font-family-mono);
+}
+
+
+/* =========================================================
+   Feature Cards
+   ========================================================= */
+
+.VPFeature {
+  background: #0b110b !important;
+  border: 1px solid #193019;
+}
+
+.VPFeature:hover {
+  background: #0e150e !important;
+  border-color: #245524;
+}
+
+.VPFeature .title {
+  color: #62ff88;
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPFeature .details {
+  color: #9cba9c;
+}
+
+
+/* =========================================================
+   Outline
+   ========================================================= */
+
+.VPDocAsideOutline .outline-link {
+  color: #668066;
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPDocAsideOutline .outline-link:hover,
+.VPDocAsideOutline .outline-link.active {
+  color: #62ff88;
+}
+
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.VPFooter {
+  background: #090d09;
+  border-top: 1px solid #193019;
+}
+
+.VPFooter .message,
+.VPFooter .copyright {
+  color: #668066;
+  font-family: var(--vp-font-family-mono);
+}
+
+
+/* =========================================================
+   Mobile Navigation
+   ========================================================= */
+
+.VPNavScreen {
+  background: #090d09;
+}
+
+.VPNavScreenMenuLink {
+  color: #9cba9c;
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPNavScreenMenuLink:hover,
+.VPNavScreenMenuLink.active {
+  color: #62ff88;
+}
+
+
+/* =========================================================
+   Scrollbar
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #193019;
+  border: 2px solid #090d09;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #245524;
+}
+
+
+/* =========================================================
+   No Rounded Corners
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+
+/* =========================================================
+   Optional CRT Scanlines
+   ========================================================= */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 255, 102, 0.015) 0,
+      rgba(0, 255, 102, 0.015) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+
+  opacity: 0.18;
+}

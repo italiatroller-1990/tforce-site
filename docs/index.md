@@ -1,21 +1,36 @@
 ---
 layout: home
+
+hero:
+  name: tForce
+  tagline: A game series as learning projects. Free and open source*
+  actions:
+    - theme: alt
+      text: Git org
+      link: https://git.italiatroller.dpdns.org/
+    - theme: alt
+      text: Wiki
+      link: /wiki/
+    - theme: alt
+      text: Blog
+      link: /blog/
+
 ---
 
-# Welcome to tForce's new home!
+# What is it?
 
-This is now where I (Italia Troller) and the contributors (currently nonexistent) will blog and expand the wiki.
+tForce is a game series made by Italia Troller as his learning projects on game engines, toolkits and fun stuffs.
 
-Say hello to **VitePress**, an SSG powered by Vite!
+# Why is there an asterisk on "open source"?
 
-# What is tForce?
+Because tForce (2023), which was the first game was not released open source in any way
 
-It's a game series made as a collection of learning projects, ranging from 2D and 3D games to experiments with LLMs — and anyone can have fun contributing!
+That means people have to reverse engineer the Electron application, or in this case, the game.
 
-# What are we gonna do?
+# What are the upcoming index of the series?
 
-***Literally anything.***
+tForce Dreadbright currently.
 
-As long as contributors follow `CONTRIB_RULES.md` in some repositories...
+# How many contributors are here?
 
-
+Just Italia Troller, he's looking for contributors as of right now.
