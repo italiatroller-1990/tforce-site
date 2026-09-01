@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: alt
       text: Git org
-      link: https://git.italiatroller.dpdns.org/
+      link: https://git.italiatroller.dpdns.org/tForce
     - theme: alt
       text: Wiki
       link: /wiki/

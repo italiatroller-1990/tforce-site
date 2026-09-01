@@ -6,7 +6,7 @@ BLOG_DIR="$DOCS_DIR/blog"
 WIKI_DIR="$DOCS_DIR/wiki"
 BLOG_INDEX="$BLOG_DIR/index.md"
 WIKI_INDEX="$WIKI_DIR/index.md"
-WIKI_SIDEBAR="$DOCS_DIR/.vitepress/config.ts"
+
 
 # --- Helpers ---
 
@@ -88,11 +88,6 @@ EOF
 - [$title](/blog/$slug) — $date" "$INDEX"
   echo "Updated: $INDEX"
 
-  # Show sidebar snippet
-  echo ""
-  echo "Add this line to the sidebar in config.ts under a '/blog/' section:"
-  echo "  { text: '$title', link: '/blog/$slug' },"
-
 elif [[ "$TYPE" == "wiki" ]]; then
   cat > "$TARGET" <<EOF
 ---
@@ -114,11 +109,8 @@ EOF
   sed -i "\$a\\
 - [$title](/wiki/$slug) — $desc" "$INDEX"
   echo "Updated: $INDEX"
+  echo "Sidebar will update automatically on next build."
 
-  # Show sidebar insertion snippet
-  echo ""
-  echo "Add this line to the sidebar in config.ts under the 'items' array:"
-  echo "  { text: '$title', link: '/wiki/$slug' },"
 fi
 
 echo ""

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { generateSidebar } from 'vitepress-sidebar'
 
 export default defineConfig({
   title: 'tForce',
@@ -13,16 +14,15 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/wiki/': [
-        {
-          text: 'Main & Video games',
-          items: [
-            { text: 'Overview', link: '/wiki/' },
-            { text: 'tForce', link: '/wiki/tforce' },
-            { text: 'tForce Dreadbright', link: '/wiki/tforce-dreadbright' },
-          ],
-        },
-      ],
+      '/wiki/': generateSidebar({
+        documentRootPath: 'docs',
+        useTitleFromFrontmatter: true,
+        frontmatterTitleFieldName: 'title',
+        useFolderLinkFromIndexFile: true,
+        useFolderTitleFromIndexFile: true,
+        excludeByGlobPattern: ['blog', '**/wiki/index.md'],
+        sortMenusByName: true,
+      }),
     },
 
     footer: {
