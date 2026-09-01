@@ -85,7 +85,7 @@ EOF
 
   # Append to blog index
   sed -i "\$a\\
-- [$title](/$slug) — $date" "$INDEX"
+- [$title](/blog/$slug) — $date" "$INDEX"
   echo "Updated: $INDEX"
 
   # Show sidebar snippet
@@ -112,7 +112,7 @@ EOF
   # Append to wiki index
   read -rp "Short description for the index (e.g. 'the ambitious FPS remake'): " desc
   sed -i "\$a\\
-- [$title](/$slug) — $desc" "$INDEX"
+- [$title](/wiki/$slug) — $desc" "$INDEX"
   echo "Updated: $INDEX"
 
   # Show sidebar insertion snippet
